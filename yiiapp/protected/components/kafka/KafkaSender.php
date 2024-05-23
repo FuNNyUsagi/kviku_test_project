@@ -6,12 +6,17 @@ class KafkaSender {
     protected $topic;
     protected $producer;
 
+    //Безопасная отправка сообщений в топик Kafka: 1 - отправка без потерь сообщений
+    protected $safely;
+
     // Настройки Kafka
     protected $brokers = "kafka:9092"; // адрес и порт вашего Kafka брокера
     protected $topicName = "kafkatest"; // название вашего топика
 
-    public function __construct()
+    public function __construct($safely)
     {
+        $this->safely = $safely;
+
         // Создаем конфигурацию производителя
         $conf = new RdKafka\Conf();
         $conf->set('metadata.broker.list', $this->brokers);
@@ -31,7 +36,9 @@ class KafkaSender {
         // Отправляем сообщение в топик
         $this->topic->produce(RD_KAFKA_PARTITION_UA, 0, $message);
 
-        $this->producer->poll(1);
-        $this->producer->flush(5000);
+        if ($this->safely == 1) {
+            $this->producer->poll(1);
+            $this->producer->flush(5000);
+        }
     }
 }

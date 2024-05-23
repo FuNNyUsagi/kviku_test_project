@@ -4,7 +4,7 @@ require 'components/kafka/KafkaSender.php';
 
 class KafkaSendCommand extends CConsoleCommand
 {
-    public function actionIndex()
+    public function actionIndex($safely)
     {
         //Ограничение по памяти
         $memoryLimit = 2 * 1024 * 1024; // 2мб
@@ -12,7 +12,7 @@ class KafkaSendCommand extends CConsoleCommand
         $startTime = microtime(true);
 
         //Продюсер сообщений кафки
-        $kafka = new KafkaSender();
+        $kafka = new KafkaSender($safely);
 
         //Место хранения json-файлов
         $f1 = 'parsing/users_first.json';
