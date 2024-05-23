@@ -1,0 +1,102 @@
+2024/05/22 17:09:00 [error] [php] Declaration of KafkasendCommand::run() should be compatible with CConsoleCommand::run($args) (/var/www/html/yiiapp/protected/commands/KafkaSendCommand.php:2)
+Stack trace:
+#0 /var/www/html/yii/framework/console/CConsoleCommandRunner.php(166): require_once()
+#1 /var/www/html/yii/framework/console/CConsoleCommandRunner.php(67): CConsoleCommandRunner->createCommand()
+#2 /var/www/html/yii/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#3 /var/www/html/yii/framework/base/CApplication.php(185): CConsoleApplication->processRequest()
+#4 /var/www/html/yii/framework/yiic.php(33): CConsoleApplication->run()
+#5 /var/www/html/yiiapp/protected/yiic.php(7): require_once()
+#6 /var/www/html/yiiapp/protected/yiic(4): require_once()
+
+2024/05/23 06:59:24 [error] [php] file_get_contents(users_first.json): failed to open stream: No such file or directory (/var/www/html/yiiapp/protected/commands/KafkaSendCommand.php:13)
+Stack trace:
+#0 /var/www/html/yiiapp/protected/commands/KafkaSendCommand.php(13): file_get_contents()
+#1 unknown(0): KafkaSendCommand->actionIndex()
+#2 /var/www/html/yii/framework/console/CConsoleCommand.php(177): ReflectionMethod->invokeArgs()
+#3 /var/www/html/yii/framework/console/CConsoleCommandRunner.php(71): KafkaSendCommand->run()
+#4 /var/www/html/yii/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#5 /var/www/html/yii/framework/base/CApplication.php(185): CConsoleApplication->processRequest()
+#6 /var/www/html/yii/framework/yiic.php(33): CConsoleApplication->run()
+#7 /var/www/html/yiiapp/protected/yiic.php(7): require_once()
+#8 /var/www/html/yiiapp/protected/yiic(4): require_once()
+
+2024/05/23 13:29:25 [error] [php] RdKafka\ProducerTopic::produce() expects parameter 3 to be string, array given (/var/www/html/yiiapp/protected/commands/KafkaSendCommand.php:96)
+Stack trace:
+#0 /var/www/html/yiiapp/protected/commands/KafkaSendCommand.php(96): RdKafka\ProducerTopic->produce()
+#1 /var/www/html/yiiapp/protected/commands/KafkaSendCommand.php(32): KafkaSendCommand->sendToKafka()
+#2 unknown(0): KafkaSendCommand->actionIndex()
+#3 /var/www/html/yii/framework/console/CConsoleCommand.php(177): ReflectionMethod->invokeArgs()
+#4 /var/www/html/yii/framework/console/CConsoleCommandRunner.php(71): KafkaSendCommand->run()
+#5 /var/www/html/yii/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#6 /var/www/html/yii/framework/base/CApplication.php(185): CConsoleApplication->processRequest()
+#7 /var/www/html/yii/framework/yiic.php(33): CConsoleApplication->run()
+#8 /var/www/html/yiiapp/protected/yiic.php(7): require_once()
+#9 /var/www/html/yiiapp/protected/yiic(4): require_once()
+
+2024/05/23 15:36:51 [error] [exception.RdKafka\Exception] RdKafka\Exception: Local: Broker transport failure in /var/www/html/yiiapp/protected/commands/KafkaSendCommand.php:102
+Stack trace:
+#0 /var/www/html/yiiapp/protected/commands/KafkaSendCommand.php(102): RdKafka->getMetadata(false, NULL, 1000)
+#1 /var/www/html/yiiapp/protected/commands/KafkaSendCommand.php(32): KafkaSendCommand->sendToKafka(Array)
+#2 [internal function]: KafkaSendCommand->actionIndex()
+#3 /var/www/html/yii/framework/console/CConsoleCommand.php(177): ReflectionMethod->invokeArgs(Object(KafkaSendCommand), Array)
+#4 /var/www/html/yii/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#5 /var/www/html/yii/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#6 /var/www/html/yii/framework/base/CApplication.php(185): CConsoleApplication->processRequest()
+#7 /var/www/html/yii/framework/yiic.php(33): CApplication->run()
+#8 /var/www/html/yiiapp/protected/yiic.php(7): require_once('/var/www/html/y...')
+#9 /var/www/html/yiiapp/protected/yiic(4): require_once('/var/www/html/y...')
+#10 {main}
+---
+2024/05/23 15:37:15 [error] [exception.RdKafka\Exception] RdKafka\Exception: Local: Broker transport failure in /var/www/html/yiiapp/protected/commands/KafkaSendCommand.php:102
+Stack trace:
+#0 /var/www/html/yiiapp/protected/commands/KafkaSendCommand.php(102): RdKafka->getMetadata(false, NULL, 1000)
+#1 /var/www/html/yiiapp/protected/commands/KafkaSendCommand.php(32): KafkaSendCommand->sendToKafka(Array)
+#2 [internal function]: KafkaSendCommand->actionIndex()
+#3 /var/www/html/yii/framework/console/CConsoleCommand.php(177): ReflectionMethod->invokeArgs(Object(KafkaSendCommand), Array)
+#4 /var/www/html/yii/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#5 /var/www/html/yii/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#6 /var/www/html/yii/framework/base/CApplication.php(185): CConsoleApplication->processRequest()
+#7 /var/www/html/yii/framework/yiic.php(33): CApplication->run()
+#8 /var/www/html/yiiapp/protected/yiic.php(7): require_once('/var/www/html/y...')
+#9 /var/www/html/yiiapp/protected/yiic(4): require_once('/var/www/html/y...')
+#10 {main}
+---
+2024/05/23 15:41:53 [error] [exception.RdKafka\Exception] RdKafka\Exception: Local: Broker transport failure in /var/www/html/yiiapp/protected/commands/KafkaSendCommand.php:102
+Stack trace:
+#0 /var/www/html/yiiapp/protected/commands/KafkaSendCommand.php(102): RdKafka->getMetadata(false, NULL, 1000)
+#1 /var/www/html/yiiapp/protected/commands/KafkaSendCommand.php(32): KafkaSendCommand->sendToKafka(Array)
+#2 [internal function]: KafkaSendCommand->actionIndex()
+#3 /var/www/html/yii/framework/console/CConsoleCommand.php(177): ReflectionMethod->invokeArgs(Object(KafkaSendCommand), Array)
+#4 /var/www/html/yii/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#5 /var/www/html/yii/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#6 /var/www/html/yii/framework/base/CApplication.php(185): CConsoleApplication->processRequest()
+#7 /var/www/html/yii/framework/yiic.php(33): CApplication->run()
+#8 /var/www/html/yiiapp/protected/yiic.php(7): require_once('/var/www/html/y...')
+#9 /var/www/html/yiiapp/protected/yiic(4): require_once('/var/www/html/y...')
+#10 {main}
+---
+2024/05/23 16:09:05 [error] [exception.RdKafka\Exception] RdKafka\Exception: Local: Broker transport failure in /var/www/html/yiiapp/protected/commands/KafkaSendCommand.php:102
+Stack trace:
+#0 /var/www/html/yiiapp/protected/commands/KafkaSendCommand.php(102): RdKafka->getMetadata(false, NULL, 1000)
+#1 /var/www/html/yiiapp/protected/commands/KafkaSendCommand.php(32): KafkaSendCommand->sendToKafka(Array)
+#2 [internal function]: KafkaSendCommand->actionIndex()
+#3 /var/www/html/yii/framework/console/CConsoleCommand.php(177): ReflectionMethod->invokeArgs(Object(KafkaSendCommand), Array)
+#4 /var/www/html/yii/framework/console/CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#5 /var/www/html/yii/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#6 /var/www/html/yii/framework/base/CApplication.php(185): CConsoleApplication->processRequest()
+#7 /var/www/html/yii/framework/yiic.php(33): CApplication->run()
+#8 /var/www/html/yiiapp/protected/yiic.php(7): require_once('/var/www/html/y...')
+#9 /var/www/html/yiiapp/protected/yiic(4): require_once('/var/www/html/y...')
+#10 {main}
+---
+2024/05/23 17:48:15 [error] [php] require(../components/kafka/KafkaSender.php): failed to open stream: No such file or directory (/var/www/html/yiiapp/protected/commands/KafkaSendCommand.php:3)
+Stack trace:
+#0 /var/www/html/yiiapp/protected/commands/KafkaSendCommand.php(3): require()
+#1 /var/www/html/yii/framework/console/CConsoleCommandRunner.php(166): require_once()
+#2 /var/www/html/yii/framework/console/CConsoleCommandRunner.php(67): CConsoleCommandRunner->createCommand()
+#3 /var/www/html/yii/framework/console/CConsoleApplication.php(92): CConsoleCommandRunner->run()
+#4 /var/www/html/yii/framework/base/CApplication.php(185): CConsoleApplication->processRequest()
+#5 /var/www/html/yii/framework/yiic.php(33): CConsoleApplication->run()
+#6 /var/www/html/yiiapp/protected/yiic.php(7): require_once()
+#7 /var/www/html/yiiapp/protected/yiic(4): require_once()
+
